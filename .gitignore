@@ -1,1 +1,12 @@
+# Ignore the enviromanet file
 .env
+
+# Ignore the vscode settings
+.vscode/
+
+# Ignore the jupyter notebook checkpoints
+.ipynb_checkpoints/
+__pycache__/
+
+# Ignore the log files
+*.log
