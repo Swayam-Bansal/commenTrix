@@ -1,4 +1,4 @@
-name: /Users/swayambansal/opt/anaconda3/envs/commenTrix
+name: commenTrix
 channels:
   - conda-forge
   - defaults
