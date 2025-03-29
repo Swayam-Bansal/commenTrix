@@ -27,7 +27,7 @@ def extract_video_id(video_url):
         return None
 
 
-def get_youtube_comments(api_key, video_id, max_results=100):
+def get_youtube_comments(api_key, video_id):
     """
     Retrieves comments from a YouTube video and returns them in JSON format.
 
@@ -49,11 +49,11 @@ def get_youtube_comments(api_key, video_id, max_results=100):
     next_page_token = None
 
     try:
-        while len(comments) < max_results:
+        while True:
             request = youtube.commentThreads().list(
                 part="snippet,replies",
                 videoId=video_id,
-                maxResults=min(100, max_results - len(comments)), #ensure we don't exceed max_results
+                maxResults=100, #ensure we don't exceed max_results
                 pageToken=next_page_token,
             )
             response = request.execute()
@@ -69,23 +69,25 @@ def get_youtube_comments(api_key, video_id, max_results=100):
                 }
                 comments.append(comment_data)
 
-                if "replies" in item:
-                    for reply in item["replies"].get("comments", []):
-                        reply_snippet = reply["snippet"]
-                        reply_data = {
-                            "text": reply_snippet["textDisplay"],
-                            "author": reply_snippet["authorDisplayName"],
-                            "publishedAt": reply_snippet["publishedAt"],
-                            "likeCount": reply_snippet["likeCount"],
-                            "isReply": True,
-                        }
-                        comments.append(reply_data)
+                # if "replies" in item:
+                #     for reply in item["replies"].get("comments", []):
+                #         reply_snippet = reply["snippet"]
+                #         reply_data = {
+                #             "text": reply_snippet["textDisplay"],
+                #             "author": reply_snippet["authorDisplayName"],
+                #             "publishedAt": reply_snippet["publishedAt"],
+                #             "likeCount": reply_snippet["likeCount"],
+                #             "isReply": True,
+                #         }
+                #         comments.append(reply_data)
 
             next_page_token = response.get("nextPageToken")
             if not next_page_token:
                 break
 
-        return comments
+        sorted_comments = sorted(comments, key=lambda x: x["likeCount"], reverse=True)
+        return sorted_comments[:100]
+    
     except googleapiclient.errors.HttpError as e:
         print(f"An HTTP error occurred: {e}")
         return None
@@ -93,7 +95,7 @@ def get_youtube_comments(api_key, video_id, max_results=100):
         print(f"An unexpected error occurred: {e}")
         return None
 
-def save_comments_to_json(comments, filename="youtube_comments.json"):
+def save_comments_to_json(comments, filename="/Users/aviralbansal/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/HACKPSU/commenTrix/test/apiyoutube_comments.json"):
     """
     Saves the list of comments to a JSON file.
 
