@@ -3,6 +3,7 @@ import json
 import re
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
 def extract_video_id(video_url):
     """
@@ -108,6 +109,10 @@ def save_comments_to_json(comments, filename="youtube_comments.json"):
         print("No comments to save.")
 
 if __name__ == "__main__":
+    # Go two levels up to get the grandparent directory
+    env_path = Path(__file__).resolve().parents[2] / ".env"
+    load_dotenv(dotenv_path=env_path)
+
     api_key = os.getenv("YOUTUBE_API_KEY") # get api key from .env
     if not api_key:
         print("Error: YOUTUBE_API_KEY not found in .env file.")
