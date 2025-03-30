@@ -4,6 +4,7 @@ import VideoInput from './components/videoInput';
 import ComparisonResults from './components/ComparisonResults';
 import SingleVideoResults from './components/SingleVideoResults';
 import axios from 'axios';
+import './App.css';
 
 function App() {
     const [comparisonResults, setComparisonResults] = useState(null);
