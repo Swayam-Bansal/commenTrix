@@ -1,88 +1,89 @@
-/* src/Dashboard.css */
+/* In your CSS file (e.g., Dashboard.css or DashboardOne.css) */
 .dashboard {
-    padding: 2rem;
-    background-color: #1E293B;
-    min-height: 100vh;
-    color: #F8FAFC;
-  }
-  
-  .dashboard-title {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-  }
-  
-  /* Stats Cards */
-  .stats-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .card {
-    background-color: #334155;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.3s;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .card h2 {
-    margin: 0;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .card p {
-    margin: 0;
-    font-size: 1rem;
-    opacity: 0.8;
-  }
-  
-  /* Chart Containers */
-  .chart-container {
-    background-color: #334155;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .chart-container h3 {
-    margin: 0 0 1rem;
-  }
-  
-  .bar-chart {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* In your CSS file (e.g., Dashboard.css or DashboardOne.css) */
-  .video-info-container {
-    display: flex;
-    align-items: flex-start; /* Align items to the top */
-    margin-bottom: 20px;
-    gap: 20px; /* Space between thumbnail/title and chart */
-  }
+  padding: 2rem;
+  background-color: #000; /* Set background to black */
+  min-height: 100vh;
+  color: #F8FAFC; /* Keep text color as white/off-white */
+}
 
-  .video-thumbnail {
-    flex-shrink: 0; /* Prevent thumbnail from shrinking */
-  }
+/* In your CSS file (e.g., Dashboard.css or DashboardOne.css) */
+.video-info-container {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  padding: 10px;
+  margin: 10px;
+  gap: 20px; /* Space between the two main sections (left and right) */
+}
 
-  .video-details {
-    flex-grow: 1; /* Allow title to take up available space */
-  }
+.video-details-summary {
+  width: 50%; /* Occupy the left half */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Stack thumbnail, title, and summary */
+  align-items: flex-start; /* Align items to the left */
+}
 
-  .sentiment-chart {
-    flex-shrink: 0; /* Prevent chart from shrinking */
-    width: 300px; /* Adjust the width of the chart as needed */
-    height: 300px; /* Adjust the height of the chart as needed */
-  }
+.video-link {
+  text-decoration: none;
+  color: inherit;
+  display: block; /* Make the link take up the full width */
+  margin-bottom: 10px; /* Space between thumbnail/title and summary */
+}
 
-  .summary-container {
-    margin-top: 20px;
-  }
+.video-thumbnail {
+  width: auto;
+  height: auto;
+  max-height: 180px; /* Increase max height for a larger thumbnail */
+  border: 1px solid #ddd;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 5px; /* Space between thumbnail and title */
+  display: block; /* Ensure it behaves as a block-level element */
+}
+
+.video-details h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.summary-container-top {
+  background-color: #334155; /* Match the chart background */
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 10px;
+}
+
+.summary-container-top h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.sentiment-chart {
+  width: 50%; /* Occupy the right half */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.sentiment-chart h3 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.recharts-responsive-container {
+  width: 90% !important;
+  height: auto !important;
+  min-height: 300px;
+}
+
+.recharts-pie {
+  margin: 0 auto;
+}
+
+/* Hide the original summary container at the bottom */
+.summary-container {
+  display: none;
+}
