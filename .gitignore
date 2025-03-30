@@ -4,16 +4,23 @@
 # Ignore the vscode settings
 .vscode/
 
+# Ignore the temperaroy files created while getting the transcripts 
+/temp_transcripts/
+
 # Ignore the jupyter notebook checkpoints
 .ipynb_checkpoints/
 __pycache__/
 
 # Ignore the log files
 *.log
+*.txt
 
 # Ignore the data files
 *.csv
 *.json
+
+# Ignore the audio files 
+*.wav
 
 .DS_Store
 
