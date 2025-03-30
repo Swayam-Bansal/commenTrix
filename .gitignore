@@ -11,12 +11,8 @@ __pycache__/
 # Ignore the log files
 *.log
 
-<<<<<<< HEAD
-# Ignore the json files
-=======
 # Ignore the data files
 *.csv
->>>>>>> ab04f342441d5df171fefe6541989d5ec4a4cba6
 *.json
 
 .DS_Store
