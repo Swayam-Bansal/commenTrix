@@ -4,6 +4,9 @@
 # Ignore the vscode settings
 .vscode/
 
+# Ignore the temperaroy files created while getting the transcripts 
+/temp_transcripts/
+
 # Ignore the jupyter notebook checkpoints
 .ipynb_checkpoints/
 __pycache__/
