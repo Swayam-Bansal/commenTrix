@@ -16,6 +16,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from db.connection import get_comments_collection, get_db
 from nlp.sentiment_model import get_ternary_sentiment
 from services.transcript_service import get_video_transcript, segment_transcript
+from nlp.summarizer import generate_summary
 
 
 def analyze_and_update_comments(video_id: str, video_url: str):
@@ -96,6 +97,33 @@ def analyze_and_update_comments(video_id: str, video_url: str):
                 print(f"Warning: Skipping update for comment {comment['_id']} due to mismatched similarity results.")
     else:
         print("Skipping embedding and linking as either transcript or comments are missing.")
+
+    # --- Generate Summary of Comments ---
+    print(f"\nGenerating summary for comments of video ID: {video_id}...")
+    all_comment_texts = [comment.get("text", "") for comment in comments_list if comment.get("text")]
+
+    if all_comment_texts:
+        # Option A: Limit the number of comments to summarize (e.g., first 500)
+        # limited_comments_texts = all_comment_texts[:500]
+        # combined_comments_text = " ".join(limited_comments_texts)
+
+        # Option B: Limit the total length of the combined text (e.g., first 10000 characters)
+        combined_comments_text = " ".join(all_comment_texts)
+        max_text_length = 10000 # Adjust this value as needed
+        if len(combined_comments_text) > max_text_length:
+            combined_comments_text = combined_comments_text[:max_text_length]
+
+        comment_summary = generate_summary(combined_comments_text)
+
+        # Store the summary in the transcripts collection
+        transcript_collection.update_one(
+            {"video_id": video_id},
+            {"$set": {"comment_summary": comment_summary}},
+            upsert=True
+        )
+        print(f"Summary generated and stored for video ID: {video_id}")
+    else:
+        print(f"No comments available to summarize for video ID: {video_id}")
 
     print(f"Analysis complete for video ID: {video_id}")
 

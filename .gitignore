@@ -5,6 +5,7 @@
 .vscode/
 
 # Ignore the temperaroy files created while getting the transcripts 
+/backend/temp_transcripts/
 /temp_transcripts/
 
 # Ignore the jupyter notebook checkpoints
@@ -13,7 +14,6 @@ __pycache__/
 
 # Ignore the log files
 *.log
-*.txt
 
 # Ignore the data files
 *.csv
@@ -25,7 +25,7 @@ __pycache__/
 .DS_Store
 
 
-# These are the ignore files for the frontend directory of the project.
+# These are the ignore files for the frontend direct ory of the project.
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
