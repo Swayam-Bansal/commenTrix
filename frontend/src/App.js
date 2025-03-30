@@ -14,12 +14,13 @@ function App() {
           await axios.post(`${backendUrl}/comments/fetch`, { urls: [urlA, urlB] });
           console.log("Comments fetched.");
   
-          // Trigger analysis (optional, you might want a separate button for this)
-          const videoIdA = urlA.split("v=")[1]?.split("&")[0]; // Basic ID extraction - improve this
-          const videoIdB = urlB.split("v=")[1]?.split("&")[0]; // Basic ID extraction - improve this
+          // Trigger analysis
+          const videoIdA = urlA.split("v=")[1]?.split("&")[0];
+          const videoIdB = urlB.split("v=")[1]?.split("&")[0];
           if (videoIdA && videoIdB) {
-              // await axios.post(`${backendUrl}/analysis/run`, { video_ids: [videoIdA, videoIdB] }); // You might need to create this route
-              // console.log("Analysis run.");
+              await axios.post(`${backendUrl}/analysis/run?url=${urlA}`, { video_ids: [videoIdA] });
+              await axios.post(`${backendUrl}/analysis/run?url=${urlB}`, { video_ids: [videoIdB] });
+              console.log("Analysis run.");
   
               // Fetch comparison results
               const response = await axios.get(`${backendUrl}/analysis/compare?videoA=${videoIdA}&videoB=${videoIdB}`);
