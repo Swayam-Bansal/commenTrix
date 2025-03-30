@@ -1,63 +1,140 @@
-/* src/Dashboard.css */
 .dashboard {
-    padding: 2rem;
-    background-color: #1E293B;
-    min-height: 100vh;
-    color: #F8FAFC;
-  }
-  
-  .dashboard-title {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-  }
-  
-  /* Stats Cards */
-  .stats-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .card {
-    background-color: #334155;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.3s;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .card h2 {
-    margin: 0;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .card p {
-    margin: 0;
-    font-size: 1rem;
-    opacity: 0.8;
-  }
-  
-  /* Chart Containers */
-  .chart-container {
-    background-color: #334155;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .chart-container h3 {
-    margin: 0 0 1rem;
-  }
-  
-  .bar-chart {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-center-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Align both panels horizontally centered */
+.video-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Left panel (thumbnail + title only now) */
+.video-panel {
+  flex: 1;
+  min-width: 300px;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Video link styling */
+.video-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.video-link:hover {
+  transform: scale(1.02);
+}
+
+/* Summary moved to bottom */
+.summary-bottom {
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.summary-container-top {
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.summary-container-top h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.summary-container-top p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Right section (chart) */
+.sentiment-chart {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.sentiment-chart h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* Chart area */
+.chart-wrapper {
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+/* Pie chart sizing */
+.recharts-responsive-container {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 300px;
+}
+
+/* Hide original summary section if it exists */
+.summary-container {
+  display: none;
+}
+
+.video-thumbnail {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+}
+
+.video-details h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #f8fafc;
+  text-align: center;
+  margin: 0;
+}
