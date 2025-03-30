@@ -1,0 +1,68 @@
+/* src/LandingPage.css */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #1E293B;
+  }
+  
+  .landing-title {
+    color: #F8FAFC;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* YouTube Video URL Form */
+  .youtube-form {
+    background-color: #334155;
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 300px; /* you can adjust the width to match your preference */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #F8FAFC;
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #fff;
+    color: #333;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem;
+    background-color: #82ca9d;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+  }
+  
+  button:hover {
+    background-color: #6fbf88;
+  }
+  
