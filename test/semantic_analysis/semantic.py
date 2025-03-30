@@ -11,12 +11,13 @@ import os
 print("Current Working Directory:", os.getcwd())
 
 def download_nltk_data():
-    """Downloads necessary NLTK data."""
+    """Checks for punkt tokenizer data and downloads it if not present."""
     try:
         nltk.data.find('tokenizers/punkt')
     except LookupError:
         print("Downloading NLTK 'punkt' data...")
         nltk.download('punkt')
+
 
 def load_transcript_from_file(transcript_file_path):
     """Loads transcript from a text file."""
@@ -32,6 +33,7 @@ def load_transcript_from_file(transcript_file_path):
     except Exception as e:
         print(f"An unexpected error occurred while reading {transcript_file_path}: {e}")
         sys.exit(1)
+
 
 def load_comments_from_json(json_file_path):
     """Loads comments from a JSON file."""
@@ -53,6 +55,7 @@ def load_comments_from_json(json_file_path):
     except Exception as e:
         print(f"An unexpected error occurred while reading {json_file_path}: {e}")
         sys.exit(1)
+
 
 def preprocess_text(text):
     """Basic text cleaning."""
@@ -77,6 +80,7 @@ def generate_embeddings(transcript_segments_processed, comments_processed):
         print("Skipping embedding generation as no comments were loaded.")
         return None, None
 
+
 def link_comments_to_transcript(comment_embeddings, transcript_embeddings):
     """Links comments to transcript using semantic similarity."""
     if comment_embeddings is not None and transcript_embeddings is not None:
@@ -86,6 +90,7 @@ def link_comments_to_transcript(comment_embeddings, transcript_embeddings):
     else:
         print("Skipping linking as embeddings were not generated.")
         return []
+
 
 def analyze_sentiment(comments):
     """Performs sentiment analysis on comments."""
@@ -110,6 +115,7 @@ def analyze_sentiment(comments):
     else:
         print("Skipping sentiment analysis as no comments were loaded.")
     return sentiments
+
 
 def combine_and_display_results(comments_data, similarity_results, sentiments, transcript_segments, comments_processed):
     """Combines and displays analysis results."""
