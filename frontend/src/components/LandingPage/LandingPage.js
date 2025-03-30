@@ -45,6 +45,7 @@ function LandingPage({ setDataRetrieved, setComparisonResults, setSingleVideoRes
                     await axios.post(`${backendUrl}/analysis/run?url=${urls[1]}`, { video_ids: [videoIdB] });
                     const response = await axios.get(`${backendUrl}/analysis/compare?videoA=${videoIdA}&videoB=${videoIdB}`);
                     setComparisonResults(response.data);
+                    console.log("Comparison Results in LandingPage:", response.data); // ADD THIS LINE
                     setDataRetrieved(true);
                     navigate('/comparison');
                 } catch (error) {
