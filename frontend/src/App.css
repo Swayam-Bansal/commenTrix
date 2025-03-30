@@ -1,0 +1,103 @@
+/* frontend/src/App.css */
+.App {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+h1, h2, h3, h4 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.VideoInput {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.VideoInput div {
+  margin-bottom: 10px;
+}
+
+.VideoInput label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.VideoInput input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.VideoInput button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.VideoInput button:hover {
+  background-color: #0056b3;
+}
+
+.ComparisonResults, .SingleVideoResults {
+  width: 90%;
+  max-width: 900px;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.ComparisonResults h3, .SingleVideoResults h3 {
+  margin-top: 0;
+}
+
+.ComparisonResults > div {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.ComparisonResults > div > div {
+  width: 45%;
+}
+
+.ComparisonResults h4, .SingleVideoResults h4 {
+  margin-top: 15px;
+}
+
+.ComparisonResults ul, .SingleVideoResults ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ComparisonResults li, .SingleVideoResults li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.ComparisonResults li:last-child, .SingleVideoResults li:last-child {
+  border-bottom: none;
+}
+
+.ComparisonResults p strong, .SingleVideoResults p strong {
+  font-weight: bold;
+}

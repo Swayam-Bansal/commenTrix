@@ -56,9 +56,12 @@ def compare_videos_analysis(video_id_a: str, video_id_b: str):
     comparison_results["videoB"]["top_comments"] = [{"author": c.get("author"), "text": c.get("text"), "likes": c.get("likeCount")} for c in top_comments_b]
 
     # --- Get Summaries (We haven't implemented summarization yet, so for now, we'll leave this out) ---
-    # You would query a 'summaries' collection or a field in your comment/video document here.
-    comparison_results["videoA"]["summary"] = "Summary for Video A will go here."
-    comparison_results["videoB"]["summary"] = "Summary for Video B will go here."
+    # --- Get Summaries ---
+    transcript_a = transcript_collection.find_one({"video_id": video_id_a})
+    comparison_results["videoA"]["summary"] = transcript_a.get("comment_summary", "No summary available.") if transcript_a else "No transcript found."
+
+    transcript_b = transcript_collection.find_one({"video_id": video_id_b})
+    comparison_results["videoB"]["summary"] = transcript_b.get("comment_summary", "No summary available.") if transcript_b else "No transcript found."
 
     return comparison_results
 
