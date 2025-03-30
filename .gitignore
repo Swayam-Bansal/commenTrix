@@ -10,15 +10,19 @@ __pycache__/
 
 # Ignore the log files
 *.log
+# *.txt
 
 # Ignore the data files
 *.csv
 *.json
 
+# Ignore the audio files 
+*.wav
+
 .DS_Store
 
 
-# These are the ignore files for the frontend directory of the project.
+# These are the ignore files for the frontend direct ory of the project.
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
